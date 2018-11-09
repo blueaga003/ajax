@@ -42,7 +42,21 @@ $("#weather-form").on('submit', showWeather);
 function orderMelons(evt) {
     evt.preventDefault();
 
+    console.log(evt);
+
     // TODO: show the result message after your form
+    const formValues = {
+        'quantity' : $('#qty-field').val(),
+        'type' : $('#melon-type-field').val()
+    };
+
+    console.log(formValues); // This works
+
+    $.post("/order-melons.json", formValues, (resultHandler) => {
+        console.log(resultHandler);
+        alert(resultHandler);
+    });
+
     // TODO: if the result code is ERROR, make it show up in red (see our CSS!)
 }
 

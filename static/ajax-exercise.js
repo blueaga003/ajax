@@ -19,17 +19,14 @@ $('#get-fortune-button').on('click', showFortune);
 
 function showWeather(evt) {
     evt.preventDefault();
-    console.log('hi');
+
 
     let url = '/weather.json';
     let formData = {'zipcode': $('#zipcode-field').val()};
-    console.log(url);
-    console.log(formData);
 
     // TODO: request weather with that URL and show the forecast in #weather-info
 
     $.get(url, formData, (results) => {
-        const weather = results;
 
         $('#weather-info').html(results.forecast);
         });
